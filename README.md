@@ -1,7 +1,7 @@
 # Speed test for Python 3.11
 I created a simple speed test to compare Python 3.11 to 3.10 (and 3.9).
 
-#### Dennis Bakhuis - 14th December 2020
+#### Dennis Bakhuis - 8th September 2022
 https://linkedin.com/in/dennisbakhuis/
 
 ## Requirements
