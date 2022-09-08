@@ -4,7 +4,7 @@
 #include <array>
 
 #define N_POINTS 10000000
-#define N_REPEATS 10
+#define N_REPEATS 5
 
 float estimate_pi(int n_points) {
    double x, y, radius_squared, pi;
@@ -38,3 +38,4 @@ int main() {
 
     printf("\nEach loop took on average %.5f seconds to calculate.\n", avg_time / N_REPEATS);
 }
+

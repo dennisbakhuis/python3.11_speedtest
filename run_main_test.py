@@ -20,7 +20,7 @@ TEST_IMAGES = [
 ]
 
 N_POINTS = 10_000_000  # points used to estimate Pi.
-N_REPEATS = 10  # times to repeat the test loop.
+N_REPEATS = 5  # times to repeat the test loop.
 # N_POINTS = 1_000_000  # points used to estimate Pi.
 # N_REPEATS = 2  # times to repeat the test loop.
 
