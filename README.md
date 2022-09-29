@@ -4,8 +4,11 @@ I created a simple speed test to compare Python 3.11 to 3.10 (and 3.9 .. 3.5).
 #### Dennis Bakhuis - 8th September 2022
 #### https://linkedin.com/in/dennisbakhuis/
 
+#### Rust contribution by [Luander Ribeiro](https://linkedin.com/in/luander/) ([github](https://github.com/luander)).
+
+
 ## Blog post
-This is the code which belongs to a blog post you can find here.
+This is the code which belongs to a blog post you can find [here](https://towardsdatascience.com/python-3-14-will-be-faster-than-c-a97edd01d65d).
 
 ## Requirements
 - Python environment to run the tester
@@ -43,3 +46,19 @@ Pi is approximately 3.14261 and took 0.25664 seconds to calculate.
 Each loop took on average 0.25685 seconds to calculate.
 ```
 
+## Result for Rust
+Build instruciton in folder.
+```stdout
+Pi is approximately 3.141846 and took 0.135379923 seconds to calculate
+Pi is approximately 3.1414772 and took 0.141171119 seconds to calculate
+Pi is approximately 3.1422468 and took 0.142733311 seconds to calculate
+Pi is approximately 3.1424972 and took 0.143618234 seconds to calculate
+Pi is approximately 3.1418892 and took 0.144456931 seconds to calculate
+Pi is approximately 3.1420588 and took 0.145583613 seconds to calculate
+Pi is approximately 3.1423404 and took 0.14586195 seconds to calculate
+Pi is approximately 3.141976 and took 0.144568619 seconds to calculate
+Pi is approximately 3.140442 and took 0.144518661 seconds to calculate
+Pi is approximately 3.1409804 and took 0.144981119 seconds to calculate
+
+Each loop took on average 0.143287348 seconds to calculate.
+```
