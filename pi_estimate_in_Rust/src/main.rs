@@ -31,7 +31,7 @@ fn main() {
         )
     }
     println!(
-        "Each loop took average {} seconds to calculate.",
+        "Each loop took on average {} seconds to calculate.",
         avg_time / N_REPEATS as f64
     )
 }

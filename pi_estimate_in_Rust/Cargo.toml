@@ -1,5 +1,5 @@
 [package]
-name = "calcpi"
+name = "pi_estimate"
 version = "0.1.0"
 edition = "2021"
 
