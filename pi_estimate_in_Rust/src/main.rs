@@ -6,16 +6,16 @@ const N_REPEATS: i32 = 10;
 
 fn estimate_pi(n_points: i32) -> f64 {
     let mut radius_squared: f64;
-    let mut within_circle = 0;
+    let mut within_circle: f64 = 0.0;
     for _ in 0..n_points {
         let x: f64 = rand::random();
         let y: f64 = rand::random();
         radius_squared = x * x + y * y;
         if radius_squared <= 1f64 {
-            within_circle += 1;
+            within_circle += 1.0;
         }
     }
-    (within_circle as f64 / n_points as f64 * 4f64) as f64
+    within_circle / n_points as f64 * 4f64
 }
 fn main() {
     let mut avg_time: f64 = 0.0;
