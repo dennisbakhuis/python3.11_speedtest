@@ -68,6 +68,15 @@ Each loop took on average 0.143287348 seconds to calculate.
 ## Result for Julia
 Build instructions in folder.
 ```stdout
-
-
+Pi is approximately 3.1412084 and took 0.032 seconds to calculate
+Pi is approximately 3.141088 and took 0.033 seconds to calculate
+Pi is approximately 3.1412732 and took 0.033 seconds to calculate
+Pi is approximately 3.1419132 and took 0.033 seconds to calculate
+Pi is approximately 3.1411956 and took 0.033 seconds to calculate
+Pi is approximately 3.1420764 and took 0.033 seconds to calculate
+Pi is approximately 3.1419316 and took 0.033 seconds to calculate
+Pi is approximately 3.1424968 and took 0.034 seconds to calculate
+Pi is approximately 3.1413764 and took 0.033 seconds to calculate
+Pi is approximately 3.1416868 and took 0.034 seconds to calculate
+Each loop took on average 0.033100000000000004 seconds to calculate.
 ```
