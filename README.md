@@ -4,7 +4,9 @@ I created a simple speed test to compare Python 3.11 to 3.10 (and 3.9 .. 3.5).
 #### Dennis Bakhuis - 8th September 2022
 #### https://linkedin.com/in/dennisbakhuis/
 
-#### Rust contribution by [Luander Ribeiro](https://linkedin.com/in/luander/) ([github](https://github.com/luander)).
+## Additional contributions:
+### Rust contribution by [Luander Ribeiro](https://linkedin.com/in/luander/) ([github](https://github.com/luander)).
+### Julia contribution by Panxiaoguang  ([github](https://github.com/ panxiaoguang )).
 
 
 ## Blog post
@@ -47,7 +49,7 @@ Each loop took on average 0.25685 seconds to calculate.
 ```
 
 ## Result for Rust
-Build instruciton in folder.
+Build instructions in folder.
 ```stdout
 Pi is approximately 3.141846 and took 0.135379923 seconds to calculate
 Pi is approximately 3.1414772 and took 0.141171119 seconds to calculate
@@ -61,4 +63,11 @@ Pi is approximately 3.140442 and took 0.144518661 seconds to calculate
 Pi is approximately 3.1409804 and took 0.144981119 seconds to calculate
 
 Each loop took on average 0.143287348 seconds to calculate.
+```
+
+## Result for Julia
+Build instructions in folder.
+```stdout
+
+
 ```
