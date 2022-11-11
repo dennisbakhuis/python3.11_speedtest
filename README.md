@@ -5,8 +5,8 @@ I created a simple speed test to compare Python 3.11 to 3.10 (and 3.9 .. 3.5).
 #### https://linkedin.com/in/dennisbakhuis/
 
 ## Additional contributions:
-### Rust contribution by [Luander Ribeiro](https://linkedin.com/in/luander/) ([github](https://github.com/luander)).
-### Julia contribution by Panxiaoguang  ([github](https://github.com/ panxiaoguang )).
+- Rust contribution by [Luander Ribeiro](https://linkedin.com/in/luander/) ([github](https://github.com/luander)).
+- Julia contribution by Panxiaoguang  ([github](https://github.com/ panxiaoguang )).
 
 
 ## Blog post
