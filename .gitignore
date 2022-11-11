@@ -1,3 +1,8 @@
+# Binary executables
+pi_estimate_in_C/pi_estimate
+pi_estimate_in_Go/pi_estimate
+pi_estimate_in_Rust/target
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
