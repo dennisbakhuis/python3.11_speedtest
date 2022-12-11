@@ -69,6 +69,7 @@ def run_test(
     if only_time:
         print(f"{(time.time() - start_time)/n_repeats:.4f}")
     else:
+        print(f"Test run was done with {n_points=:.2e}")
         print(
             f"Estimating pi took {(time.time() - start_time)/n_repeats:.4f} seconds per run."
         )
