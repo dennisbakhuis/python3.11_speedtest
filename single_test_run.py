@@ -11,6 +11,12 @@ import random
 import time
 import argparse
 
+# cython
+import pyximport
+pyximport.install()
+
+import estimate_pi_cython
+
 from numba import njit
 
 def estimate_pi(
@@ -95,9 +101,9 @@ def run_test(
         will also show the Pi estimate and a neat formatted
         time.
     jit
-        type of jit to use none,numba
+        type of jit to use none,numba,cython
     """
-    fcns = {"none":estimate_pi, "numba": estimate_pi_numba}
+    fcns = {"none":estimate_pi, "numba": estimate_pi_numba, "cython": estimate_pi_cython.estimate_pi}
 
     start_time = time.time()
 
@@ -138,7 +144,7 @@ def main(arguments=None):
 
     parser.add_argument(
         "--jit",
-        help="use compiler options=[none, numba]",
+        help="use compiler options=[none, numba, cython]",
         default="none",
         type=str
     )
