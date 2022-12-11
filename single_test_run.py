@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 #################################
 # Simple Python 3.11 speed test #
 #################################
@@ -100,9 +102,9 @@ def main(arguments=None):
         default=5,
     )
     parser.add_argument(
-            "--only-time",
-            action='store_true',
-            default=False,
+        "--only-time",
+        action="store_true",
+        default=False,
     )
     args = parser.parse_args()
 
@@ -115,4 +117,3 @@ def main(arguments=None):
 
 if __name__ == "__main__":
     main()
-
