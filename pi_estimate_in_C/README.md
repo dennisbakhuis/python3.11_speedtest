@@ -8,7 +8,7 @@ https://linkedin.com/in/dennisbakhuis/
 
 ## Build
 ```bash
-g++ -O2 -o pi_estimate pi_estimate.c
+g++ -O2 -o pi_estimate pi_estimate.cpp
 ```
 
 ## Run
