@@ -15,7 +15,7 @@ import argparse
 import pyximport
 pyximport.install()
 
-import estimate_pi_cython
+import estimate_pi_cython #type: ignore
 
 from numba import njit
 
