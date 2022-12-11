@@ -127,5 +127,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-pi_estimate_in_C/pi_estimate
-pi_estimate_in_C/pi_estimate
+
