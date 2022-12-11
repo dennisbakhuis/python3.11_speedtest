@@ -3,7 +3,7 @@
 #include <chrono>
 #include <array>
 
-#define N_POINTS 10000000
+#define N_POINTS 1000000
 #define N_REPEATS 5
 
 float estimate_pi(int n_points) {
