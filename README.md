@@ -7,6 +7,7 @@ I created a simple speed test to compare Python 3.11 to 3.10 (and 3.9 .. 3.5).
 ## Additional contributions:
 - Rust contribution by [Luander Ribeiro](https://linkedin.com/in/luander/) -> [github](https://github.com/luander).
 - Julia contribution by Xiaoguang Pan (潘小光) -> [github](https://github.com/panxiaoguang).
+- Golang and automation contribution by [Greg Hellings](https://www.linkedin.com/in/gregory-hellings-97b15058/) -> [github](https://github.com/greg-hellings/)
 
 
 ## Blog post
@@ -23,6 +24,11 @@ python run_main_test.py
 
 ## Monte Carlo Pi estimation
 For this I us a Pi estimation. Not sure if this is the best workload but it is at least Python heavy.
+
+## Sample Results in CI
+
+You can see [the latest results](actions/workflows/run.yml) in Github Actions for different languages as
+well as different versions of Python.
 
 ## Result
 ```stdout

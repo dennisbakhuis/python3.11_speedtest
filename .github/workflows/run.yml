@@ -1,0 +1,54 @@
+name: Test builder
+
+"on":
+  push:
+  pull_request:
+
+jobs:
+  polyglot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.11"
+      - name: Run Python 3.11
+        run: ./run.sh
+      - name: Run C
+        run: cd pi_estimate_in_C && ./run.sh
+      - name: Run Go
+        run: cd pi_estimate_in_Go && ./run.sh
+      #- name: Run Julia
+      #  run: cd pi_estimate_in_Julia && ./run.sh
+      - name: Run Rust
+        run: cd pi_estimate_in_Rust && ./run.sh
+
+  python_version_compare:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Python 3.7
+        uses: ./.github/actions/python_run/
+        with:
+          py: "3.7"
+      - name: Python 3.8
+        uses: ./.github/actions/python_run/
+        with:
+          py: "3.8"
+      - name: Python 3.9
+        uses: ./.github/actions/python_run/
+        with:
+          py: "3.9"
+      - name: Python 3.10
+        uses: ./.github/actions/python_run/
+        with:
+          py: "3.10"
+      - name: Python 3.11
+        uses: ./.github/actions/python_run/
+        with:
+          py: "3.11"
