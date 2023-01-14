@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-julia pi_estimate.pl
+julia pi_estimate.jl
