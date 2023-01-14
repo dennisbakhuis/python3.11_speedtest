@@ -19,7 +19,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Run Python test
-        run: cd pi_estimates/Python && ./run.sh
+        run: cd pi_estimates/Python && ./run_numba.sh
   c-speed-test:
     runs-on: ubuntu-latest
     name: Speedtest C++
@@ -27,7 +27,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Compile and run C version
-        run: cd pi_estimates/C && ./run.sh
+        run: cd pi_estimates/C && ./run_numba.sh
   go-speed-test:
     runs-on: ubuntu-latest
     name: Speedtest Go
@@ -39,7 +39,7 @@ jobs:
         with:
           go-version: '^1.19.5'
       - name: Compile and run Go version
-        run: cd pi_estimates/Go && ./run.sh
+        run: cd pi_estimates/Go && ./run_numba.sh
   julia-speed-test:
     runs-on: ubuntu-latest
     name: Speedtest Julia
@@ -51,11 +51,32 @@ jobs:
         with:
           version: 1.8.5
       - name: Run Julia version
-        run: cd pi_estimates/Julia && ./run.sh
-
-#      #- name: Run Julia
-#      #  run: cd pi_estimates/Julia && ./run.sh
-#      - name: Run Rust
-#        run: cd pi_estimates/Rust && ./run.sh
-
-
+        run: cd pi_estimates/Julia && ./run_numba.sh
+  rust-speed-test:
+    runs-on: ubuntu-latest
+    name: Speedtest Rust
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Setup Rust environment
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - name: Compile and run Rust version
+        run: cd pi_estimates/Rust && ./run_numba.sh
+  cython-numba-speed-test:
+    runs-on: ubuntu-latest
+    name: Speedtest Cython and Numba
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install Python 3.10
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - name: Install Cython & Numba packages
+        run: cd pi_estimates/Cython_and_Numba && pip install -r requirements.txt
+      - name: Run Numba version
+        run: cd pi_estimates/Cython_and_Numba && ./run_numba.sh
+      - name: Run Cython version
+        run: cd pi_estimates/Cython_and_Numba && ./run_numba.sh

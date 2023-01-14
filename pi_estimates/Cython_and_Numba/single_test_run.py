@@ -14,38 +14,7 @@ import argparse
 import pyximport
 from numba import njit
 from pi_estimates.Cython_and_Numba import estimate_pi_cython
-
 pyximport.install()
-
-
-def estimate_pi(
-    n_points: int,
-    show_estimate: bool,
-) -> None:
-    """
-    Simple Monte Carlo Pi estimation calculation.
-
-    Parameters
-    ----------
-    n_points
-        number of random numbers used to for estimation.
-    show_estimate
-        if True, will show the estimation of Pi, otherwise
-        will not output anything.
-    """
-    within_circle = 0
-
-    for _ in range(n_points):
-        x, y = (random.uniform(-1, 1) for v in range(2))
-        radius_squared = x**2 + y**2
-
-        if radius_squared <= 1:
-            within_circle += 1
-
-    pi_estimate = 4 * within_circle / n_points
-
-    if not show_estimate:
-        print("Final Estimation of Pi=", pi_estimate)
 
 
 @njit
@@ -103,7 +72,6 @@ def run_test(
         type of jit to use none,numba,cython
     """
     fcns = {
-        "none":estimate_pi,
         "numba": estimate_pi_numba,
         "cython": estimate_pi_cython.estimate_pi,
     }
@@ -146,8 +114,8 @@ def main(arguments=None):
     parser.add_argument(
         "--jit",
         help="use compiler options=[none, numba, cython]",
-        default="none",
-        type=str
+        choices=['numba', 'cython'],
+        default="cython",
     )
 
     parser.add_argument(
@@ -162,7 +130,7 @@ def main(arguments=None):
         action="store_true",
         default=False,
     )
-    args = parser.parse_args()
+    args = parser.parse_args(arguments)
 
     run_test(
         args.n_points,
