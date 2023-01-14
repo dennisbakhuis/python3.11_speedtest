@@ -22,7 +22,7 @@ jobs:
         run: cd pi_estimates/Python && ./run.sh > speedtest_python_${{ matrix.python-version }}.out
       - uses: actions/upload-artifact@v3
         with:
-          name: speedtest
+          name: speedtest_outputs
           path: pi_estimates/Python/speedtest_python_${{ matrix.python-version }}.out
   c-speed-test:
     runs-on: ubuntu-latest
@@ -34,7 +34,7 @@ jobs:
         run: cd pi_estimates/C && ./run.sh > speedtest_c.out
       - uses: actions/upload-artifact@v3
         with:
-         name: speedtest
+         name: speedtest_outputs
          path: pi_estimates/C/speedtest_c.out
   go-speed-test:
     runs-on: ubuntu-latest
@@ -50,7 +50,7 @@ jobs:
         run: cd pi_estimates/Go && ./run.sh > speedtest_go.out
       - uses: actions/upload-artifact@v3
         with:
-          name: speedtest
+          name: speedtest_outputs
           path: pi_estimates/Go/speedtest_go.out
   julia-speed-test:
     runs-on: ubuntu-latest
@@ -66,7 +66,7 @@ jobs:
         run: cd pi_estimates/Julia && ./run.sh > speedtest_julia.out
       - uses: actions/upload-artifact@v3
         with:
-          name: speedtest
+          name: speedtest_outputs
           path: pi_estimates/Julia/speedtest_julia.out
   rust-speed-test:
     runs-on: ubuntu-latest
@@ -84,7 +84,7 @@ jobs:
         run: cd pi_estimates/Rust && ./target/release/pi_estimate > speedtest_rust.out
       - uses: actions/upload-artifact@v3
         with:
-          name: speedtest
+          name: speedtest_outputs
           path: pi_estimates/Rust/speedtest_rust.out
   cython-numba-speed-test:
     runs-on: ubuntu-latest
@@ -104,5 +104,23 @@ jobs:
         run: cd pi_estimates/Cython_and_Numba && ./run_cython.sh > speedtest_cython.out
       - uses: actions/upload-artifact@v3
         with:
-          name: speedtest
+          name: speedtest_outputs
           path: pi_estimates/Cython_and_Numba/speedtest_*.out
+
+  data-collector:
+    needs: [python-speed-tests, c-speed-test, go-speed-test, julia-speed-test, rust-speed-test, cython-numba-speed-test]
+    runs-on: ubuntu-latest
+    name: Speedtest Cython and Numba
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Create temp folder
+        run: mkdir speedtest_data
+      - name: Download speedtest data
+        uses: aochmann/actions-download-artifact@1.0.0
+        with:
+          name: speedtest_outputs
+          path: speedtest_data
+      - name: Show contents
+        run: ls speedtest_data/
+
