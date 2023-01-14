@@ -11,13 +11,12 @@ import random
 import time
 import argparse
 
-# cython
 import pyximport
+from numba import njit
+import estimate_pi_cython  #type: ignore
+
 pyximport.install()
 
-import estimate_pi_cython #type: ignore
-
-from numba import njit
 
 def estimate_pi(
     n_points: int,
@@ -47,6 +46,7 @@ def estimate_pi(
 
     if not show_estimate:
         print("Final Estimation of Pi=", pi_estimate)
+
 
 @njit
 def estimate_pi_numba(
@@ -80,7 +80,6 @@ def estimate_pi_numba(
         print("Final Estimation of Pi=", pi_estimate)
 
 
-
 def run_test(
     n_points: int,
     n_repeats: int,
@@ -103,11 +102,13 @@ def run_test(
     jit
         type of jit to use none,numba,cython
     """
-    fcns = {"none":estimate_pi, "numba": estimate_pi_numba, "cython": estimate_pi_cython.estimate_pi}
+    fcns = {
+        "none":estimate_pi,
+        "numba": estimate_pi_numba,
+        "cython": estimate_pi_cython.estimate_pi,
+    }
 
     start_time = time.time()
-
-
 
     for _ in range(n_repeats):
         fcns[jit](n_points, only_time)
@@ -162,7 +163,6 @@ def main(arguments=None):
         default=False,
     )
     args = parser.parse_args()
-
 
     run_test(
         args.n_points,
