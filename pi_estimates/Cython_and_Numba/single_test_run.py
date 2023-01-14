@@ -13,7 +13,7 @@ import argparse
 
 import pyximport
 from numba import njit
-from pi_estimates.Cython_and_Numba import estimate_pi_cython
+import estimate_pi_cython
 pyximport.install()
 
 

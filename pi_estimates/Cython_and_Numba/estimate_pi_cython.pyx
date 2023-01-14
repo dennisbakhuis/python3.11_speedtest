@@ -3,7 +3,6 @@ cdef extern from "stdlib.h":
     void srand48(long int seedval)
 
 
-
 def estimate_pi(
     n_points: int,
     show_estimate: bool,
