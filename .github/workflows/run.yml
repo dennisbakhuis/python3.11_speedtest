@@ -121,6 +121,13 @@ jobs:
         with:
           name: speedtest_outputs
           path: speedtest_data
-      - name: Show contents
-        run: ls speedtest_data/
-
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - name: Combine data
+        run: python scripts/results_analyzer.py --speedtest-data-path speedtest_data/
+      - uses: actions/upload-artifact@v3
+        with:
+          name: speedtest_results
+          path: speedtest_data/speedtest_results.json
