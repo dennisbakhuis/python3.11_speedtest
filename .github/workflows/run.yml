@@ -6,11 +6,11 @@ name: Run all speed tests
 
 
 jobs:
-  python-tests:
+  python-speed-tests:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.10", "3.11"]
+        python-version: ["3.5", "3.6", "3.7", "3.8", "3.9", "3.10", "3.11"]
     name: Python ${{ matrix.python-version }} testing
     steps:
       - name: Checkout code
@@ -21,8 +21,16 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Run Python test
         run: cd pi_estimates/Python && ./run.sh
-#      - name: Run C
-#        run: cd pi_estimates/C && ./run.sh
+  c-speed-test:
+    runs-on: ubuntu-latest
+    name: Python ${{ matrix.python-version }} testing
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Compile C version
+        run: cd pi_estimates/C && g++ -O2 -o pi_estimate pi_estimate.cpp
+      - name: Run C
+        run: cd pi_estimates/C && ./run.sh
 #      - name: Run Go
 #        run: cd pi_estimates/Go && ./run.sh
 #      #- name: Run Julia
@@ -30,30 +38,4 @@ jobs:
 #      - name: Run Rust
 #        run: cd pi_estimates/Rust && ./run.sh
 
-#  python_version_compare:
-#    runs-on: ubuntu-latest
-#    strategy:
-#      fail-fast: false
-#    steps:
-#      - name: Checkout code
-#        uses: actions/checkout@v3
-#      - name: Python 3.7
-#        uses: ./.github/actions/python_run/
-#        with:
-#          py: "3.7"
-#      - name: Python 3.8
-#        uses: ./.github/actions/python_run/
-#        with:
-#          py: "3.8"
-#      - name: Python 3.9
-#        uses: ./.github/actions/python_run/
-#        with:
-#          py: "3.9"
-#      - name: Python 3.10
-#        uses: ./.github/actions/python_run/
-#        with:
-#          py: "3.10"
-#      - name: Python 3.11
-#        uses: ./.github/actions/python_run/
-#        with:
-#          py: "3.11"
+
