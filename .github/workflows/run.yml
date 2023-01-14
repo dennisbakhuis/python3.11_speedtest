@@ -2,8 +2,6 @@ name: Run all speed tests
 
 "on":
   push:
-    tags-ignore:
-      - github-bot
   pull_request:
 
 jobs:
@@ -29,16 +27,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Compile and run C version
-        run: cd pi_estimates/C && ./run.sh > output_c_speedtest.txt
-      - name: Commit output
-        run: |
-          mv pi_estimates/C/output_c_speedtest.txt results/
-          git config --local user.email "noreply@github.action"
-          git config --local user.name "GitHub Action"
-          git add results/
-          git commit -m 'New result added'
-          git tag github-bot
-          git push
+        run: cd pi_estimates/C && ./run.sh > speedtest_c.out
+      - uses: actions/upload-artifact@v3
+        with:
+         name: speedtest_c
+         path: pi_estimats/C/speedtest_c.out
   go-speed-test:
     runs-on: ubuntu-latest
     name: Speedtest Go
