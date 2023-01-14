@@ -3,7 +3,7 @@
 #include <chrono>
 #include <array>
 
-#define N_POINTS 10000000
+#define N_POINTS 1000000
 #define N_REPEATS 5
 
 float estimate_pi(int n_points) {
@@ -33,9 +33,10 @@ int main() {
         auto end = std::chrono::high_resolution_clock::now();
         auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
         avg_time += elapsed.count() * 1e-9;
+
         printf("Pi is approximately %g and took %.5f seconds to calculate.\n", pi, elapsed.count() * 1e-9);
     }
-
+    printf("Test run was done with %.2e points.", float(N_POINTS));
     printf("\nEach loop took on average %.5f seconds to calculate.\n", avg_time / N_REPEATS);
 }
 
