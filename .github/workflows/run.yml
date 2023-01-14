@@ -15,15 +15,15 @@ jobs:
         with:
           python-version: "3.11"
       - name: Run Python 3.11
-        run: ./run.sh
+        run: cd pi_estimates/Python && ./run.sh
       - name: Run C
-        run: cd pi_estimate_in_C && ./run.sh
+        run: cd pi_estimates/C && ./run.sh
       - name: Run Go
-        run: cd pi_estimate_in_Go && ./run.sh
+        run: cd pi_estimates/Go && ./run.sh
       #- name: Run Julia
-      #  run: cd pi_estimate_in_Julia && ./run.sh
+      #  run: cd pi_estimates/Julia && ./run.sh
       - name: Run Rust
-        run: cd pi_estimate_in_Rust && ./run.sh
+        run: cd pi_estimates/Rust && ./run.sh
 
   python_version_compare:
     runs-on: ubuntu-latest
