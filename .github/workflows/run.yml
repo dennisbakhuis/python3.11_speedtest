@@ -1,54 +1,58 @@
-name: Test builder
+name: Run all speed tests
 
 "on":
   push:
   pull_request:
 
 jobs:
-  polyglot:
+  python-tests:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11"]
+    name: Python ${{ matrix.python-version }} testing
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Install Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
-      - name: Run Python 3.11
+          python-version: ${{ matrix.python-version }}
+      - name: Run Python test
         run: cd pi_estimates/Python && ./run.sh
-      - name: Run C
-        run: cd pi_estimates/C && ./run.sh
-      - name: Run Go
-        run: cd pi_estimates/Go && ./run.sh
-      #- name: Run Julia
-      #  run: cd pi_estimates/Julia && ./run.sh
-      - name: Run Rust
-        run: cd pi_estimates/Rust && ./run.sh
+#      - name: Run C
+#        run: cd pi_estimates/C && ./run.sh
+#      - name: Run Go
+#        run: cd pi_estimates/Go && ./run.sh
+#      #- name: Run Julia
+#      #  run: cd pi_estimates/Julia && ./run.sh
+#      - name: Run Rust
+#        run: cd pi_estimates/Rust && ./run.sh
 
-  python_version_compare:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Python 3.7
-        uses: ./.github/actions/python_run/
-        with:
-          py: "3.7"
-      - name: Python 3.8
-        uses: ./.github/actions/python_run/
-        with:
-          py: "3.8"
-      - name: Python 3.9
-        uses: ./.github/actions/python_run/
-        with:
-          py: "3.9"
-      - name: Python 3.10
-        uses: ./.github/actions/python_run/
-        with:
-          py: "3.10"
-      - name: Python 3.11
-        uses: ./.github/actions/python_run/
-        with:
-          py: "3.11"
+#  python_version_compare:
+#    runs-on: ubuntu-latest
+#    strategy:
+#      fail-fast: false
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v3
+#      - name: Python 3.7
+#        uses: ./.github/actions/python_run/
+#        with:
+#          py: "3.7"
+#      - name: Python 3.8
+#        uses: ./.github/actions/python_run/
+#        with:
+#          py: "3.8"
+#      - name: Python 3.9
+#        uses: ./.github/actions/python_run/
+#        with:
+#          py: "3.9"
+#      - name: Python 3.10
+#        uses: ./.github/actions/python_run/
+#        with:
+#          py: "3.10"
+#      - name: Python 3.11
+#        uses: ./.github/actions/python_run/
+#        with:
+#          py: "3.11"
