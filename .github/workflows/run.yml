@@ -4,6 +4,7 @@ name: Run all speed tests
   push:
   pull_request:
 
+
 jobs:
   python-tests:
     runs-on: ubuntu-latest
