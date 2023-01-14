@@ -4,14 +4,13 @@ name: Run all speed tests
   push:
   pull_request:
 
-
 jobs:
   python-speed-tests:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.5", "3.6", "3.7", "3.8", "3.9", "3.10", "3.11"]
-    name: Python ${{ matrix.python-version }} testing
+        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
+    name: Speedtest Python ${{ matrix.python-version }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -23,16 +22,37 @@ jobs:
         run: cd pi_estimates/Python && ./run.sh
   c-speed-test:
     runs-on: ubuntu-latest
-    name: Python ${{ matrix.python-version }} testing
+    name: Speedtest C++
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Compile C version
-        run: cd pi_estimates/C && g++ -O2 -o pi_estimate pi_estimate.cpp
-      - name: Run C
+      - name: Compile and run C version
         run: cd pi_estimates/C && ./run.sh
-#      - name: Run Go
-#        run: cd pi_estimates/Go && ./run.sh
+  go-speed-test:
+    runs-on: ubuntu-latest
+    name: Speedtest Go
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Setup Go environment
+        uses: actions/setup-go@v3
+        with:
+          go-version: '^1.19.5'
+      - name: Compile and run Go version
+        run: cd pi_estimates/Go && ./run.sh
+  julia-speed-test:
+    runs-on: ubuntu-latest
+    name: Speedtest Julia
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Setup Julia environment
+      - uses: julia-actions/setup-julia@v1
+        with:
+          version: 1.8.5
+      - name: Run Julia version
+        run: cd pi_estimates/Julia && ./run.sh
+
 #      #- name: Run Julia
 #      #  run: cd pi_estimates/Julia && ./run.sh
 #      - name: Run Rust
