@@ -48,19 +48,17 @@ python run_main_test.py
 ## Results summary
 | Language    | Result (seconds) |
 |-------------|------------------|
-| Cython      | 0.0297           |
-| Julia       | 0.0331           |
-| C++         | 0.04463          |
-| Go          | 0.08421          |
-| Numba       | 0.0923           |
-| Rust        | 0.1433           |
-| Python 3.11 | 6.46             |
-| Python 3.10 | 8.8467           |
-| Python 3.9  | 10.9537          |
-| Python 3.8  | 10.6904          |
-| Python 3.7  | 10.7465          |
-| Python 3.6  | 11.4332          |
-| Python 3.5  | 11.3014          |
+| Cython      | 0.0273           |
+| C++         | 0.0355           |
+| Julia       | 0.0368           |
+| Go          | 0.0846           |
+| Numba       | 0.0958           |
+| Rust        | 0.1559           |
+| Python 3.11 | 1.0992           |
+| Python 3.9  | 1.4127           |
+| Python 3.10 | 1.4161           |
+| Python 3.7  | 1.4191           |
+| Python 3.8  | 1.8726          |
 
 
 ## Original results
