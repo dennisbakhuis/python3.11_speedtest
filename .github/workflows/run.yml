@@ -31,7 +31,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
          name: speedtest_c
-         path: pi_estimats/C/speedtest_c.out
+         path: pi_estimates/C/speedtest_c.out
   go-speed-test:
     runs-on: ubuntu-latest
     name: Speedtest Go
