@@ -13,8 +13,8 @@ import argparse
 
 import pyximport
 from numba import njit
+pyximport.install(language_level='3')
 import estimate_pi_cython
-pyximport.install()
 
 
 @njit

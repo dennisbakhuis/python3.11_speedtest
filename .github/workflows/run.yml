@@ -62,8 +62,10 @@ jobs:
         uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
-      - name: Compile and run Rust version
-        run: cd pi_estimates/Rust && ./run.sh
+      - name: Compile Rust version
+        run: cd pi_estimates/Rust && cargo build --release
+      - name: Run Rust version
+        run: cd pi_estimates/Rust && ./target/release/pi_estimate
   cython-numba-speed-test:
     runs-on: ubuntu-latest
     name: Speedtest Cython and Numba
