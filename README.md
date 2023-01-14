@@ -14,6 +14,26 @@ This is the code which belongs to a blog post you can find [here](https://toward
 - Golang and automation contribution by [Greg Hellings](https://www.linkedin.com/in/gregory-hellings-97b15058/) -> [github](https://github.com/greg-hellings/)
 - Cython and Numba contribution by [Jev Kuznetsov](https://www.linkedin.com/in/jev-kuznetsov/) -> [github](https://github.com/sjev) 
 
+## Calculated results by continuous integration
+You can see [the latest results](https://github.com/dennisbakhuis/python3.11_speedtest/actions/workflows/run.yml) in Github Actions for different languages as
+well as different versions of Python. The results are collected in a JSON artifact. Below is an example output:
+
+```json
+{
+    "Cython": 0.0273,
+    "C": 0.0355,
+    "Julia": 0.0368,
+    "Go": 0.0846,
+    "Numba": 0.0958,
+    "Rust": 0.1559,
+    "Python_3.11": 1.0992,
+    "Python_3.9": 1.4127,
+    "Python_3.10": 1.4161,
+    "Python_3.7": 1.4191,
+    "Python_3.8": 1.8726
+}
+```
+
 ## Run original test using Docker
 ### Requirements
 - Python environment to run the tester
@@ -24,10 +44,6 @@ This is the code which belongs to a blog post you can find [here](https://toward
 cd pi_estimates/Python
 python run_main_test.py
 ```
-
-## Results calculated during continues integration
-You can see [the latest results](actions/workflows/run.yml) in Github Actions for different languages as
-well as different versions of Python.
 
 ## Results summary
 | Language    | Result (seconds) |
