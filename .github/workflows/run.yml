@@ -19,7 +19,11 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Run Python test
-        run: cd pi_estimates/Python && ./run.sh
+        run: cd pi_estimates/Python && ./run.sh > speedtest_python_${{ matrix.python-version }}.out
+      - uses: actions/upload-artifact@v3
+        with:
+          name: speedtest
+          path: pi_estimates/Python/speedtest_python_${{ matrix.python-version }}.out
   c-speed-test:
     runs-on: ubuntu-latest
     name: Speedtest C++
@@ -30,7 +34,7 @@ jobs:
         run: cd pi_estimates/C && ./run.sh > speedtest_c.out
       - uses: actions/upload-artifact@v3
         with:
-         name: speedtest_c
+         name: speedtest
          path: pi_estimates/C/speedtest_c.out
   go-speed-test:
     runs-on: ubuntu-latest
@@ -43,7 +47,11 @@ jobs:
         with:
           go-version: '^1.19.5'
       - name: Compile and run Go version
-        run: cd pi_estimates/Go && ./run.sh
+        run: cd pi_estimates/Go && ./run.sh > speedtest_go.out
+      - uses: actions/upload-artifact@v3
+        with:
+          name: speedtest
+          path: pi_estimates/Go/speedtest_go.out
   julia-speed-test:
     runs-on: ubuntu-latest
     name: Speedtest Julia
@@ -55,7 +63,11 @@ jobs:
         with:
           version: 1.8.5
       - name: Run Julia version
-        run: cd pi_estimates/Julia && ./run.sh
+        run: cd pi_estimates/Julia && ./run.sh > speedtest_julia.out
+      - uses: actions/upload-artifact@v3
+        with:
+          name: speedtest
+          path: pi_estimates/Julia/speedtest_julia.out
   rust-speed-test:
     runs-on: ubuntu-latest
     name: Speedtest Rust
@@ -69,7 +81,11 @@ jobs:
       - name: Compile Rust version
         run: cd pi_estimates/Rust && cargo build --release
       - name: Run Rust version
-        run: cd pi_estimates/Rust && ./target/release/pi_estimate
+        run: cd pi_estimates/Rust && ./target/release/pi_estimate > speedtest_rust.out
+      - uses: actions/upload-artifact@v3
+        with:
+          name: speedtest
+          path: pi_estimates/Rust/speedtest_rust.out
   cython-numba-speed-test:
     runs-on: ubuntu-latest
     name: Speedtest Cython and Numba
@@ -83,6 +99,10 @@ jobs:
       - name: Install Cython & Numba packages
         run: cd pi_estimates/Cython_and_Numba && pip install -r requirements.txt
       - name: Run Numba version
-        run: cd pi_estimates/Cython_and_Numba && ./run_numba.sh
+        run: cd pi_estimates/Cython_and_Numba && ./run_numba.sh > speedtest_numba.out
       - name: Run Cython version
-        run: cd pi_estimates/Cython_and_Numba && ./run_cython.sh
+        run: cd pi_estimates/Cython_and_Numba && ./run_cython.sh > speedtest_cython.out
+      - uses: actions/upload-artifact@v3
+        with:
+          name: speedtest
+          path: pi_estimates/Cython_and_Numba/speedtest_*.out
