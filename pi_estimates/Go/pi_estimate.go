@@ -8,7 +8,7 @@ import (
 
 const (
 	N_POINTS = 10000000
-	N_TRIES = 5
+	N_TRIES = 10
 )
 
 func estimate_pi(n_points int) float64 {

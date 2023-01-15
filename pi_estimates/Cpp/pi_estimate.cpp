@@ -24,7 +24,7 @@ float estimate_pi(unsigned int n_points,
 
 int main() {
   double avg_time = 0;
-  unsigned long long N_POINTS = 10000000, N_REPEATS = 50;
+  unsigned long long N_POINTS = 10000000, N_REPEATS = 10;
   
   typedef std::ratio<1l, 1000000000000l> pico;
   typedef std::chrono::duration<long long, pico> picoseconds;

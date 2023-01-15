@@ -108,7 +108,7 @@ def main(arguments=None):
         "--n_points",
         help="Number of random points to use for estimating Pi.",
         type=positive_integer,
-        default=1_000_000,
+        default=10_000_000,
     )
 
     parser.add_argument(
@@ -123,7 +123,7 @@ def main(arguments=None):
         "--n_repeats",
         help="Number of times to repeat the calculation.",
         type=positive_integer,
-        default=5,
+        default=10,
     )
     parser.add_argument(
         "--only-time",
