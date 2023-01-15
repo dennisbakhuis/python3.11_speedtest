@@ -21,36 +21,20 @@ well as different versions of Python. The results are collected in a JSON artifa
 
 ```json
 {
-    "Cython": 0.0273,
-    "C": 0.0355,
-    "Julia": 0.0368,
-    "Go": 0.0846,
-    "Numba": 0.0958,
-    "Rust": 0.1559,
-    "Python_3.11": 1.0992,
-    "Python_3.9": 1.4127,
-    "Python_3.10": 1.4161,
-    "Python_3.7": 1.4191,
-    "Python_3.8": 1.8726
+    "Julia": 0.0448,
+    "Go": 0.0774,
+    "Numba": 0.1626,
+    "Rust": 0.1755,
+    "Cpp": 0.2071,
+    "Cython": 0.2703,
+    "C": 0.4208,
+    "Python_3.11": 12.1766,
+    "Python_3.9": 14.1459,
+    "Python_3.10": 14.3943,
+    "Python_3.7": 16.0291,
+    "Python_3.8": 18.6563
 }
 ```
-
-## Results summary
-| Language    | Result (seconds) |
-|-------------|------------------|
-| C++ imprved | 0.2610           |
-| Cython      | 0.0273           |
-| C++         | 0.0355           |
-| Julia       | 0.0368           |
-| Go          | 0.0846           |
-| Numba       | 0.0958           |
-| Rust        | 0.1559           |
-| Python 3.11 | 1.0992           |
-| Python 3.9  | 1.4127           |
-| Python 3.10 | 1.4161           |
-| Python 3.7  | 1.4191           |
-| Python 3.8  | 1.8726           |
-
 
 ## Run original test using Docker
 ### Requirements
