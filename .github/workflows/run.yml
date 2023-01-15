@@ -36,6 +36,18 @@ jobs:
         with:
          name: speedtest_outputs
          path: pi_estimates/C/speedtest_c.out
+  cpp-speed-test:
+    runs-on: ubuntu-latest
+    name: Speedtest C++ (improved version)
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Compile and run C version
+        run: cd pi_estimates/Cpp && ./run.sh > speedtest_cpp.out
+      - uses: actions/upload-artifact@v3
+        with:
+         name: speedtest_outputs
+         path: pi_estimates/Cpp/speedtest_cpp.out
   go-speed-test:
     runs-on: ubuntu-latest
     name: Speedtest Go
@@ -108,7 +120,7 @@ jobs:
           path: pi_estimates/Cython_and_Numba/speedtest_*.out
 
   data-collector:
-    needs: [python-speed-tests, c-speed-test, go-speed-test, julia-speed-test, rust-speed-test, cython-numba-speed-test]
+    needs: [python-speed-tests, c-speed-test, go-speed-test, julia-speed-test, rust-speed-test, cython-numba-speed-test, cpp-speed-test]
     runs-on: ubuntu-latest
     name: Speedtest data collector
     steps:

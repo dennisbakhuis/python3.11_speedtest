@@ -12,7 +12,8 @@ This is the code which belongs to a blog post you can find [here](https://toward
 - Rust contribution by [Luander Ribeiro](https://linkedin.com/in/luander/) -> [github](https://github.com/luander).
 - Julia contribution by Xiaoguang Pan (潘小光) -> [github](https://github.com/panxiaoguang).
 - Golang and automation contribution by [Greg Hellings](https://www.linkedin.com/in/gregory-hellings-97b15058/) -> [github](https://github.com/greg-hellings/)
-- Cython and Numba contribution by [Jev Kuznetsov](https://www.linkedin.com/in/jev-kuznetsov/) -> [github](https://github.com/sjev) 
+- Cython and Numba contribution by [Jev Kuznetsov](https://www.linkedin.com/in/jev-kuznetsov/) -> [github](https://github.com/sjev)
+- C++ (improved) by [Juraj Szitas](https://www.linkedin.com/in/juraj-szitas/) -> [github](https://github.com/JSzitas)
 
 ## Calculated results by continuous integration
 You can see [the latest results](https://github.com/dennisbakhuis/python3.11_speedtest/actions/workflows/run.yml) in Github Actions for different languages as
@@ -20,17 +21,18 @@ well as different versions of Python. The results are collected in a JSON artifa
 
 ```json
 {
-    "Cython": 0.0273,
-    "C": 0.0355,
-    "Julia": 0.0368,
-    "Go": 0.0846,
-    "Numba": 0.0958,
-    "Rust": 0.1559,
-    "Python_3.11": 1.0992,
-    "Python_3.9": 1.4127,
-    "Python_3.10": 1.4161,
-    "Python_3.7": 1.4191,
-    "Python_3.8": 1.8726
+    "Julia": 0.0448,
+    "Go": 0.0774,
+    "Numba": 0.1626,
+    "Rust": 0.1755,
+    "Cpp": 0.2071,
+    "Cython": 0.2703,
+    "C": 0.4208,
+    "Python_3.11": 12.1766,
+    "Python_3.9": 14.1459,
+    "Python_3.10": 14.3943,
+    "Python_3.7": 16.0291,
+    "Python_3.8": 18.6563
 }
 ```
 
@@ -44,22 +46,6 @@ well as different versions of Python. The results are collected in a JSON artifa
 cd pi_estimates/Python
 python run_main_test.py
 ```
-
-## Results summary
-| Language    | Result (seconds) |
-|-------------|------------------|
-| Cython      | 0.0273           |
-| C++         | 0.0355           |
-| Julia       | 0.0368           |
-| Go          | 0.0846           |
-| Numba       | 0.0958           |
-| Rust        | 0.1559           |
-| Python 3.11 | 1.0992           |
-| Python 3.9  | 1.4127           |
-| Python 3.10 | 1.4161           |
-| Python 3.7  | 1.4191           |
-| Python 3.8  | 1.8726          |
-
 
 ## Original results
 ```stdout
