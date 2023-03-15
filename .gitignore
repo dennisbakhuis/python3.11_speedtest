@@ -137,3 +137,6 @@ dmypy.json
 /pi_estimates/Cpp/pi_estimate
 /pi_estimates/Go/pi_estimate
 /pi_estimates/Rust/target
+
+# history
+.history

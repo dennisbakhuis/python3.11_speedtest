@@ -1,4 +1,4 @@
-# Contribute to Python 3.11 Speedtest
+# Contribute to Python 3.12 Speedtest
 Awesome that you want to add your speedtest to this project! Here are some guidelines on how to add, to make it slightly more fair.
 
 Guidelines:
