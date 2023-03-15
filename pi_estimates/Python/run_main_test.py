@@ -8,15 +8,17 @@
 import subprocess
 import os
 
-NEW_IMAGE = {'name': 'Python 3.11', 'image': 'python:3.11-rc-slim'}
+NEW_IMAGE = {'name': 'Python 3.12', 'image': 'python:3.12-rc-slim'}
 
 TEST_IMAGES = [
-        {'name': 'Python 3.5', 'image': 'python:3.7-slim'},
-        {'name': 'Python 3.6', 'image': 'python:3.7-slim'},
-        {'name': 'Python 3.7', 'image': 'python:3.7-slim'},
-        {'name': 'Python 3.8', 'image': 'python:3.8-slim'},
-        {'name': 'Python 3.9', 'image': 'python:3.9-slim'},
-        {'name': 'Python 3.10', 'image': 'python:3.10-slim'},
+    {'name': 'Python 3.5', 'image': 'python:3.7-slim'},
+    {'name': 'Python 3.6', 'image': 'python:3.7-slim'},
+    {'name': 'Python 3.7', 'image': 'python:3.7-slim'},
+    {'name': 'Python 3.8', 'image': 'python:3.8-slim'},
+    {'name': 'Python 3.9', 'image': 'python:3.9-slim'},
+    {'name': 'Python 3.10', 'image': 'python:3.10-slim'},
+    {'name': 'Python 3.11', 'image': 'python:3.11-slim'},
+    {'name': 'PyPy 3.9', 'image': 'pypy:3.9-slim'},
 ]
 
 N_POINTS = 10_000_000  # points used to estimate Pi.
